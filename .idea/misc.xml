@@ -8,6 +8,8 @@
       <list>
         <option value="$PROJECT_DIR$/comcurriculum_web/pom.xml" />
         <option value="$PROJECT_DIR$/comcurriculum_server/pom.xml" />
+        <option value="$PROJECT_DIR$/curriculum_web/pom.xml" />
+        <option value="$PROJECT_DIR$/curriculum_server/pom.xml" />
       </list>
     </option>
   </component>
