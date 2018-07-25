@@ -1,11 +1,7 @@
 package com.curriculum.server.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.curriculum.server.common.bean.ResultStruct;
 import com.curriculum.server.common.bean.ReturnValue;
-import com.curriculum.server.common.utils.Constant;
-import com.curriculum.server.common.utils.HttpRequest;
-import com.curriculum.server.common.utils.SystemException;
 import com.curriculum.server.daoBean.User;
 import com.curriculum.server.service.UserService;
 import org.slf4j.Logger;
@@ -14,17 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.core.Context;
-import java.util.HashMap;
-import java.util.Map;
 
+/**
+ * User module interface
+ * @author liumengwei
+ * @since V1.0
+ * @date 2018/7/25
+ */
 @Controller
-//@RestController
 @EnableAutoConfiguration
 public class UserController {
     private final static Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -32,28 +30,18 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/{device}/details/{aid}")
-    @ResponseBody
-    public String details(
-            @PathVariable("device") String device,
-            @PathVariable("aid") String aid,
-            @Context HttpServletRequest request) {
-        ResultStruct result = new ResultStruct();
-        String content;
-        try {
-            Map<String, Object> map = new HashMap<>();
-            String url = String.format(Constant.DETAILS, aid);
-            content = HttpRequest.sendGet(url, map);
-            return content;
-        } catch (Exception ex) {
-            return JSON.toJSONString(SystemException.setResult(result, ex, logger));
-        }
-    }
-
-    @GetMapping("/{device}/userLogin")
+    /**
+     * user login
+     * @param username username
+     * @param password password
+     * @return ResultStruct
+     * @author liumengwei
+     * @since V1.0
+     * @date 2018/7/25
+     */
+    @GetMapping("/userLogin")
     @ResponseBody
     public ResultStruct userLogin(
-            @PathVariable("device") String device,
             @FormParam("username") String username,
             @FormParam("password") String password,
             @Context HttpServletRequest request) {
@@ -67,7 +55,6 @@ public class UserController {
             result = ResultStruct.setResultStructInfo(rb, result);
             return result;
         } catch (Exception ex) {
-//            return SystemException.setResult(result, ex, logger);
             logger.error(ex.getMessage(), ex);
             return result;
         }

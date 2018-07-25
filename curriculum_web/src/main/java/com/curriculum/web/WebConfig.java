@@ -20,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
     private static List<String> NOT_INTERCEPT_URL = new ArrayList<>();
     private static List<String> INTERCEPT_URL = new ArrayList<>();
     static {
-        NOT_INTERCEPT_URL.add("/fiction/{device}/index");
+        NOT_INTERCEPT_URL.add("/user/{device}/userLogin");
         INTERCEPT_URL.add("/**");
     }
     @Override
