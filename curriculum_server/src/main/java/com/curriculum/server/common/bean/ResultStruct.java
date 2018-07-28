@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.curriculum.server.common.utils.StringUtil;
 
+import javax.ws.rs.core.Response;
+
+
 public class ResultStruct {
     private String status = ResultBean.OK;// 默认0 ok
     private Object body = "null";
@@ -36,6 +39,19 @@ public class ResultStruct {
         resultStruct.setMsg(StringUtil.isEmpty(meg) ? "" : meg);
         return resultStruct;
     }
+
+    /**
+     * 返回结果
+     * @param resultStruct 结果对象
+     * @param <T>
+     * @return Response
+     * @author liumengwei
+     * @date 2018/7/27
+     */
+    public static <T> Response returnResule(ResultStruct resultStruct) {
+        return Response.ok(resultStruct.toString()).build();
+    }
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

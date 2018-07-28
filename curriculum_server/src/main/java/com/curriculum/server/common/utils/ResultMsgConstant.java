@@ -39,4 +39,6 @@ public class ResultMsgConstant {
     public final static String indexPicError = "indexPicError";
     // 图片地址错误
     public final static String picError = "picError";
+    // add success
+    public final static String addSuccess = "addSuccess";
 }

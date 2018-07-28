@@ -1,6 +1,7 @@
 package com.curriculum.server.common.utils;
 
 import com.curriculum.server.common.bean.ResultStruct;
+import com.curriculum.server.common.bean.ReturnValue;
 import org.slf4j.Logger;
 
 import javax.ws.rs.core.Response;
@@ -44,6 +45,15 @@ public enum SystemException {
         resultStruct.setMsg(e.getMessage());
         resultStruct.setStatus(String.valueOf(SYSTEM_EXCEPTION.getValue()));
         return Response.ok(resultStruct.toString()).build();
+    }
+
+    public static ReturnValue setResult(ReturnValue returnValue, Exception e, Logger logger) {
+        e.printStackTrace();
+        logger.error(e.getMessage(), e);
+        returnValue.setObject("");
+        returnValue.setMeg(e.getMessage());
+        returnValue.setFlag(Integer.parseInt(String.valueOf(SYSTEM_EXCEPTION.getValue())));
+        return returnValue;
     }
 
 }

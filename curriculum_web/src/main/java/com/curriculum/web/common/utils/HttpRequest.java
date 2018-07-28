@@ -27,7 +27,7 @@ public class HttpRequest {
     // 报错说明
     private static String content = "Verification code or phone number error";
     // 请求域名
-    private static final String ADDRESS_URL = "http://localhost:8001";
+    private static final String ADDRESS_URL = "http://localhost:8120";
 //    private static final String ADDRESS_URL = "http://localhost:8119";
 
     /**
