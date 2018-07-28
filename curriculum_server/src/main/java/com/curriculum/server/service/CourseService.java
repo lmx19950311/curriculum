@@ -7,15 +7,12 @@ import com.curriculum.server.common.utils.ResultMsgConstant;
 import com.curriculum.server.common.utils.SystemException;
 import com.curriculum.server.daoBean.Course;
 import com.curriculum.server.daoBean.DeleteStatus;
-import com.curriculum.server.daoBean.User;
 import com.curriculum.server.fBean.CourseBean;
 import com.curriculum.server.mapper.CourseMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.text.ParseException;
 
 /**
  * course Service
