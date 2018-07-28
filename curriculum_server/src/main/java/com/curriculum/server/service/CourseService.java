@@ -45,9 +45,11 @@ public class CourseService {
             course.setCreate_time(DateUtil.getSystem());
             course.setCourse_money(Double.parseDouble(courseBean.getMoney()));
             course.setIs_delete(DeleteStatus.NO.getStatus());
+            course.setNum(Integer.parseInt(courseBean.getNum()));
             courseMapper.addCourse(course);
             returnValue.setFlag(ReturnValue.FLAG_SUCCESS);
             returnValue.setMeg(me.getValue(ResultMsgConstant.addSuccess));
+            returnValue.setObject(courseBean);
         } catch (Exception ex) {
             return SystemException.setResult(returnValue, ex, logger);
         }

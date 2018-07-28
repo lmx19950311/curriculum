@@ -40,18 +40,20 @@ public class CourseController {
      * @since V1.0
      * @date 2018/7/27
      */
-    @RequestMapping(value = "/addCourse", method = RequestMethod.POST, produces = "")
+    @RequestMapping(value = "/addCourse", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
-    public Response addCourse(
+    public ResultStruct addCourse(
             @BeanParam CourseBean courseBean) {
         ResultStruct result = new ResultStruct();
         try {
             ReturnValue returnValue = courseService.addCourse(courseBean);
             result = ResultStruct.setResultStructInfo(returnValue, result);
-            return ResultStruct.returnResule(result);
+//            return ResultStruct.returnResule(result);
+            return result;
         } catch (Exception ex) {
             SystemException.setResult(result, ex, logger);
-            return ResultStruct.returnResule(result);
+//            return ResultStruct.returnResule(result);
+            return result;
         }
     }
 }
