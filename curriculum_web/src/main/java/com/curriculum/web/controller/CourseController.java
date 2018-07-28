@@ -36,7 +36,7 @@ public class CourseController {
      * @since V1.0
      * @date 2018/7/27
      */
-    @RequestMapping(value = "/addCourse", method = RequestMethod.POST, produces = "")
+    @RequestMapping(value = "/addCourse", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public <T> Response addCourse(
             @BeanParam CourseBean courseBean) {
