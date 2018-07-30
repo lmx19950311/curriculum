@@ -1,5 +1,7 @@
 package com.curriculum.server.mapper;
 
+import com.curriculum.server.daoBean.User;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -9,5 +11,9 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserMapper {
+
+    @Insert("insert into user(nick_hame, gender, grade, phone, create_time, status)" +
+            "values(#{nick_hame}, #{gender}, #{grade}, #{phone}, #{create_time}, #{status})")
+    void addUser(User user);
 }
 
