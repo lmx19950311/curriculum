@@ -13,4 +13,6 @@ public class Constant {
      */
 
     public final static String ADD_COURSE = "/course/addCourse";
+
+    public final static String ADD_PAY_ORDER = "/payOrder/addPayOrder";
 }
