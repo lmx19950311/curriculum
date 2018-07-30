@@ -1,5 +1,6 @@
 package com.curriculum.server.mapper;
 
+import com.curriculum.server.daoBean.PayOrder;
 import com.curriculum.server.daoBean.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
