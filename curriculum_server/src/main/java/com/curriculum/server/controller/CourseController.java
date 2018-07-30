@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.ws.rs.BeanParam;
-import javax.ws.rs.core.Response;
 
 /**
  * User module interface

@@ -5,7 +5,6 @@ import com.curriculum.web.common.utils.Constant;
 import com.curriculum.web.common.utils.HttpRequest;
 import com.curriculum.web.common.utils.SystemException;
 import com.curriculum.web.common.utils.TransferUtils;
-import com.curriculum.web.controller.bean.PayOrderBean;
 import com.curriculum.web.controller.bean.UserBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

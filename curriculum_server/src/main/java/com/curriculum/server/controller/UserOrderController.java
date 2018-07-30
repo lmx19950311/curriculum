@@ -3,7 +3,6 @@ package com.curriculum.server.controller;
 import com.curriculum.server.common.bean.ResultStruct;
 import com.curriculum.server.common.bean.ReturnValue;
 import com.curriculum.server.common.utils.SystemException;
-import com.curriculum.server.fBean.PayOrderBean;
 import com.curriculum.server.fBean.UserOrderBean;
 import com.curriculum.server.service.UserOrderService;
 import org.slf4j.Logger;
