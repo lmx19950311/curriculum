@@ -6,7 +6,7 @@ import com.curriculum.web.common.utils.HttpRequest;
 import com.curriculum.web.common.utils.SystemException;
 import com.curriculum.web.common.utils.TransferUtils;
 import com.curriculum.web.controller.bean.PayOrderBean;
-import com.curriculum.web.controller.bean.UserBean;
+import com.curriculum.web.controller.bean.UserOrderBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,25 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.ws.rs.BeanParam;
 import java.util.Map;
 
-/**
- * User module interface
- * @author liumengwei
- * @since V1.0
- * @date 2018/7/25
- */
 @RestController
-@RequestMapping("/user")
-public class UserController {
-    private final static Logger logger = LoggerFactory.getLogger(UserController.class);
+@RequestMapping("/userOrder")
+public class UserOrderController {
+    private final static Logger logger = LoggerFactory.getLogger(UserOrderController.class);
 
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/addUserOrder", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public String addCourse(
-            @BeanParam UserBean userBean) {
+            @BeanParam UserOrderBean userOrderBean) {
         ResultStruct result = new ResultStruct();
         try {
-            Map<String, Object> param = TransferUtils.transBeanToMap(userBean);
-            return HttpRequest.sendPost(Constant.ADD_USER, param);
+            Map<String, Object> param = TransferUtils.transBeanToMap(userOrderBean);
+            return HttpRequest.sendPost(Constant.ADD_USER_ORDER, param);
         } catch (Exception ex) {
             return SystemException.setResult(result, ex, logger);
         }

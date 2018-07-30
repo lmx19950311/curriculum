@@ -26,7 +26,7 @@ public class UserOrderController {
     @Autowired
     private UserOrderService userOrderService;
 
-    @RequestMapping(value = "/addPayOrder", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/addUserOrder", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
     public ResultStruct addUserOrder(@BeanParam UserOrderBean userOrderBean) {
         ResultStruct result = new ResultStruct();
