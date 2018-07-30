@@ -10,10 +10,10 @@ public class PayOrderBean {
     private String cid;
     @FormParam("createTime")
     private String createTime;
-    @FormParam("patTtype")
-    private String patTtype;
-    @FormParam("patTime")
-    private String patTime;
+    @FormParam("payType")
+    private String payType;
+    @FormParam("payTime")
+    private String payTime;
     @FormParam("payAccount")
     private String payAccount;
     @FormParam("payResult")
@@ -48,20 +48,20 @@ public class PayOrderBean {
         this.createTime = createTime;
     }
 
-    public String getPatTtype() {
-        return patTtype;
+    public String getPayType() {
+        return payType;
     }
 
-    public void setPatTtype(String patTtype) {
-        this.patTtype = patTtype;
+    public void setPayType(String payType) {
+        this.payType = payType;
     }
 
-    public String getPatTime() {
-        return patTime;
+    public String getPayTime() {
+        return payTime;
     }
 
-    public void setPatTime(String patTime) {
-        this.patTime = patTime;
+    public void setPayTime(String payTime) {
+        this.payTime = payTime;
     }
 
     public String getPayAccount() {
