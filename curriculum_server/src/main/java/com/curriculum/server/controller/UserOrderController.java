@@ -4,8 +4,8 @@ import com.curriculum.server.common.bean.ResultStruct;
 import com.curriculum.server.common.bean.ReturnValue;
 import com.curriculum.server.common.utils.SystemException;
 import com.curriculum.server.fBean.PayOrderBean;
-import com.curriculum.server.fBean.UserBean;
-import com.curriculum.server.service.UserService;
+import com.curriculum.server.fBean.UserOrderBean;
+import com.curriculum.server.service.UserOrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,27 +17,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.ws.rs.BeanParam;
 
-/**
- * User module interface
- * @author liumengwei
- * @since V1.0
- * @date 2018/7/25
- */
 @Controller
 @EnableAutoConfiguration
-@RequestMapping("user")
-public class UserController {
-    private final static Logger logger = LoggerFactory.getLogger(UserController.class);
+@RequestMapping("userOrder")
+public class UserOrderController {
+    private final static Logger logger = LoggerFactory.getLogger(UserOrderController.class);
 
     @Autowired
-    private UserService userService;
+    private UserOrderService userOrderService;
 
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/addPayOrder", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
-    public ResultStruct addUser(@BeanParam UserBean userBean) {
+    public ResultStruct addUserOrder(@BeanParam UserOrderBean userOrderBean) {
         ResultStruct result = new ResultStruct();
         try {
-            ReturnValue returnValue = userService.addUser(userBean);
+            ReturnValue returnValue = userOrderService.addUserOrder(userOrderBean);
             result = ResultStruct.setResultStructInfo(returnValue, result);
             return result;
         } catch (Exception ex) {
@@ -45,5 +39,4 @@ public class UserController {
             return result;
         }
     }
-
 }

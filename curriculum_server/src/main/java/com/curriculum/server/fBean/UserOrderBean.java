@@ -5,29 +5,29 @@ import javax.ws.rs.FormParam;
 public class UserOrderBean {
 
     @FormParam("uid")
-    private Long uid;
+    private String uid;
     @FormParam("cid")
-    private Long cid;
+    private String cid;
     @FormParam("createTime")
     private String createTime;
     @FormParam("payResult")
-    private Integer payResult;
+    private String payResult;
     @FormParam("status")
-    private Integer status;
+    private String status;
 
-    public Long getUid() {
+    public String getUid() {
         return uid;
     }
 
-    public void setUid(Long uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
-    public Long getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(Long cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
 
@@ -39,19 +39,19 @@ public class UserOrderBean {
         this.createTime = createTime;
     }
 
-    public Integer getPayResult() {
+    public String getPayResult() {
         return payResult;
     }
 
-    public void setPayResult(Integer payResult) {
+    public void setPayResult(String payResult) {
         this.payResult = payResult;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

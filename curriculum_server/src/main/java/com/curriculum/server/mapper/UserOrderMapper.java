@@ -9,5 +9,5 @@ public interface UserOrderMapper {
 
     @Insert("insert into user_order(uid, cid, is_delelte, create_time, pay_result, status)" +
             " values (#{uid}, #{cid}, #{is_delelte}, #{create_time}, #{pay_result}, #{status})")
-        void addUserOrder(UserOrder userOrder);
+    void addUserOrder(UserOrder userOrder);
 }

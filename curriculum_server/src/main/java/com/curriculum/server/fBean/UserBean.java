@@ -6,7 +6,7 @@ public class UserBean {
     @FormParam("nickHame")
     private String nickHame;
     @FormParam("gender")
-    private Integer gender;
+    private String gender;
     @FormParam("grade")
     private String grade;
     @FormParam("phone")
@@ -14,7 +14,7 @@ public class UserBean {
     @FormParam("createTime")
     private String createTime;
     @FormParam("status")
-    private Integer status;
+    private String status;
 
     public String getNickHame() {
         return nickHame;
@@ -24,11 +24,11 @@ public class UserBean {
         this.nickHame = nickHame;
     }
 
-    public Integer getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -56,11 +56,11 @@ public class UserBean {
         this.createTime = createTime;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }
