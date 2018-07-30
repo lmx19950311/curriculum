@@ -1,28 +1,27 @@
-package com.curriculum.server.daoBean;
+package com.curriculum.server.fBean;
 
-public class User {
-    private Long id;
-    private String nick_hame;
+import javax.ws.rs.FormParam;
+
+public class UserBean {
+    @FormParam("nickHame")
+    private String nickHame;
+    @FormParam("gender")
     private Integer gender;
+    @FormParam("grade")
     private String grade;
+    @FormParam("phone")
     private String phone;
-    private String create_time;
+    @FormParam("createTime")
+    private String createTime;
+    @FormParam("status")
     private Integer status;
 
-    public Long getId() {
-        return id;
+    public String getNickHame() {
+        return nickHame;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNick_hame() {
-        return nick_hame;
-    }
-
-    public void setNick_hame(String nick_hame) {
-        this.nick_hame = nick_hame;
+    public void setNickHame(String nickHame) {
+        this.nickHame = nickHame;
     }
 
     public Integer getGender() {
@@ -49,12 +48,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getCreate_time() {
-        return create_time;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(String create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public Integer getStatus() {
