@@ -48,4 +48,18 @@ public class CourseController {
             return SystemException.setResult(result, ex, logger);
         }
     }
+
+    @RequestMapping(value = "/updateCourse", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public String updateCourse(
+            @BeanParam CourseBean courseBean) {
+        ResultStruct result = new ResultStruct();
+        try {
+            Map<String, Object> param = TransferUtils.transBeanToMap(courseBean);
+            String content = HttpRequest.sendPost(Constant.UPDATE_COURSE, param);
+            return content;
+        } catch (Exception ex) {
+            return SystemException.setResult(result, ex, logger);
+        }
+    }
 }

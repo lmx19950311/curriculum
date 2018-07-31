@@ -55,4 +55,23 @@ public class CourseService {
         }
         return returnValue;
     }
+
+    public ReturnValue updateCourse(CourseBean courseBean) {
+        ReturnValue returnValue = new ReturnValue();
+        try {
+            Course course = new Course();
+            course.setCourse_begin_time(DateUtil.getTime(courseBean.getStartTime()));
+            course.setCourse_end_time(DateUtil.getTime(courseBean.getEndTime()));
+            course.setCourse_money(Double.parseDouble(courseBean.getMoney()));
+            course.setNum(Integer.parseInt(courseBean.getNum()));
+            course.setId(Integer.parseInt(courseBean.getId()));
+            courseMapper.updateCourse(course);
+            returnValue.setFlag(ReturnValue.FLAG_SUCCESS);
+            returnValue.setMeg(me.getValue(ResultMsgConstant.modifySuccess));
+            returnValue.setObject(courseBean);
+        } catch (Exception ex) {
+            return SystemException.setResult(returnValue, ex, logger);
+        }
+        return returnValue;
+    }
 }

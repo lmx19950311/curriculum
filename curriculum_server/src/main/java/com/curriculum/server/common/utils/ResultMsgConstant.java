@@ -41,4 +41,6 @@ public class ResultMsgConstant {
     public final static String picError = "picError";
     // add success
     public final static String addSuccess = "addSuccess";
+    // update success
+    public final static String modifySuccess = "modifySuccess";
 }

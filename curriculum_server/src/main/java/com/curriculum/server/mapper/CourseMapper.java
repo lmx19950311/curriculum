@@ -3,6 +3,7 @@ package com.curriculum.server.mapper;
 import com.curriculum.server.daoBean.Course;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * course
@@ -24,4 +25,8 @@ public interface CourseMapper {
     @Insert("insert into course(course_begin_time, course_end_time, course_money, create_time, num, is_delete) " +
             "values(#{course_begin_time}, #{course_end_time}, #{course_money}, #{create_time}, #{num}, #{is_delete})")
     void addCourse(Course course);
+
+    @Update("update course set course_begin_time = #{course_begin_time}, course_end_time = #{course_end_time}," +
+            " course_money = #{course_money}, num = #{num} where id = #{id}")
+    void updateCourse(Course course);
 }

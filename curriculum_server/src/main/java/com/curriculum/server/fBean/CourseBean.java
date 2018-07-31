@@ -4,6 +4,8 @@ import javax.ws.rs.FormParam;
 
 public class CourseBean {
 
+    @FormParam("id")
+    private String id;
     @FormParam("startTime") 
     private String startTime;
     @FormParam("endTime")
@@ -43,5 +45,13 @@ public class CourseBean {
 
     public void setMoney(String money) {
         this.money = money;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
