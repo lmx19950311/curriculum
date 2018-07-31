@@ -38,4 +38,18 @@ public class UserOrderController {
             return result;
         }
     }
+
+    @RequestMapping(value = "/deleteUserOrder", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public  ResultStruct deleteUserOrder(String isDelete, String id) {
+        ResultStruct result = new ResultStruct();
+        try {
+            ReturnValue returnValue = userOrderService.deleteUserOrder(isDelete, id);
+            result = ResultStruct.setResultStructInfo(returnValue, result);
+            return result;
+        } catch (Exception ex) {
+            SystemException.setResult(result, ex, logger);
+            return result;
+        }
+    }
 }

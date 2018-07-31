@@ -28,7 +28,7 @@ public class UserOrderService {
             UserOrder e = new UserOrder();
             e.setUid(Long.parseLong(userOrderBean.getUid()));
             e.setCid(Long.parseLong(userOrderBean.getCid()));
-            e.setIs_delelte(DeleteStatus.NO.getStatus());
+            e.setIs_delete(DeleteStatus.NO.getStatus());
             e.setCreate_time(DateUtil.getTime(userOrderBean.getCreateTime()));
             e.setPay_result(Integer.parseInt(userOrderBean.getPayResult()));
             e.setStatus(Integer.parseInt(userOrderBean.getStatus()));
@@ -36,6 +36,19 @@ public class UserOrderService {
             returnValue.setFlag(ReturnValue.FLAG_SUCCESS);
             returnValue.setMeg(me.getValue(ResultMsgConstant.addSuccess));
             returnValue.setObject(userOrderBean);
+        } catch (Exception ex) {
+            return SystemException.setResult(returnValue, ex, logger);
+        }
+        return returnValue;
+    }
+
+    public ReturnValue deleteUserOrder(String isDelete, String id) {
+        ReturnValue returnValue = new ReturnValue();
+        try {
+            userOrderMapper.deleteUserOrder(isDelete, id);
+            returnValue.setFlag(ReturnValue.FLAG_SUCCESS);
+            returnValue.setMeg(me.getValue(ResultMsgConstant.deleteSuccess));
+            returnValue.setObject("{\"isDelete\" : \"" + isDelete + "\"}");
         } catch (Exception ex) {
             return SystemException.setResult(returnValue, ex, logger);
         }

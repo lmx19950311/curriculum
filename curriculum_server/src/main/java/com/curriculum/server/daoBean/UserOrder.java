@@ -4,7 +4,7 @@ public class UserOrder {
     private Long id;
     private Long uid;
     private Long cid;
-    private Integer is_delelte;
+    private Integer is_delete;
     private String create_time;
     private Integer pay_result;
     private Integer status;
@@ -33,12 +33,12 @@ public class UserOrder {
         this.cid = cid;
     }
 
-    public Integer getIs_delelte() {
-        return is_delelte;
+    public Integer getIs_delete() {
+        return is_delete;
     }
 
-    public void setIs_delelte(Integer is_delelte) {
-        this.is_delelte = is_delelte;
+    public void setIs_delete(Integer is_delete) {
+        this.is_delete = is_delete;
     }
 
     public String getCreate_time() {

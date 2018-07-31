@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.BeanParam;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -29,6 +30,21 @@ public class UserOrderController {
         try {
             Map<String, Object> param = TransferUtils.transBeanToMap(userOrderBean);
             return HttpRequest.sendPost(Constant.ADD_USER_ORDER, param);
+        } catch (Exception ex) {
+            return SystemException.setResult(result, ex, logger);
+        }
+    }
+
+    @RequestMapping(value = "/deleteUserOrder", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public String deleteUserOrder(String isDelete, String id) {
+        ResultStruct result = new ResultStruct();
+        try {
+            Map<String, Object> param = new HashMap<String, Object>();
+            param.put("isDelete", isDelete);
+            param.put("id", id);
+            String content = HttpRequest.sendPost(Constant.DELETE_USER_ORDER, param);
+            return content;
         } catch (Exception ex) {
             return SystemException.setResult(result, ex, logger);
         }
