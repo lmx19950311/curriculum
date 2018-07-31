@@ -23,7 +23,7 @@ public class UserOrderController {
 
     @RequestMapping(value = "/addUserOrder", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String addCourse(
+    public String addUserOrder(
             @BeanParam UserOrderBean userOrderBean) {
         ResultStruct result = new ResultStruct();
         try {

@@ -45,4 +45,18 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/updateUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public ResultStruct updateUser(@BeanParam UserBean userBean) {
+        ResultStruct result = new ResultStruct();
+        try {
+            ReturnValue returnValue = userService.updateUser(userBean);
+            result = ResultStruct.setResultStructInfo(returnValue, result);
+            return result;
+        } catch (Exception ex) {
+            SystemException.setResult(result, ex, logger);
+            return result;
+        }
+    }
+
 }

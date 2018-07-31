@@ -42,4 +42,23 @@ public class UserService extends IoHandlerAdapter {
         return returnValue;
     }
 
+    public ReturnValue updateUser(UserBean userBean) {
+        ReturnValue returnValue = new ReturnValue();
+        try {
+            User e = new User();
+            e.setNick_hame(userBean.getNickHame());
+            e.setGender(Integer.parseInt(userBean.getGender()));
+            e.setGrade(userBean.getGrade());
+            e.setPhone(userBean.getPhone());
+            e.setId(Long.parseLong(userBean.getId()));
+            userMapper.updateUser(e);
+            returnValue.setFlag(ReturnValue.FLAG_SUCCESS);
+            returnValue.setMeg(me.getValue(ResultMsgConstant.modifySuccess));
+            returnValue.setObject(userBean);
+        } catch (Exception ex) {
+            return SystemException.setResult(returnValue, ex, logger);
+        }
+        return returnValue;
+    }
+
 }

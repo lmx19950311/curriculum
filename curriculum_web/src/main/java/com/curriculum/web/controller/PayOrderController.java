@@ -30,7 +30,7 @@ public class PayOrderController {
 
     @RequestMapping(value = "/addPayOrder", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String addCourse(
+    public String addPayOrder(
             @BeanParam PayOrderBean payOrderBean) {
         ResultStruct result = new ResultStruct();
         try {

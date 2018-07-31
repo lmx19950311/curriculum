@@ -3,6 +3,9 @@ package com.curriculum.web.controller.bean;
 import javax.ws.rs.FormParam;
 
 public class UserBean {
+
+    @FormParam("id")
+    private String id;
     @FormParam("nickHame")
     private String nickHame;
     @FormParam("gender")
@@ -62,5 +65,13 @@ public class UserBean {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

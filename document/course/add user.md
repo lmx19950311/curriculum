@@ -1,34 +1,34 @@
-添加用户记录addUser
+修改用户记录updateUser
 
 请求方式：POST
 
-样例：https://[host]:[port]/user/addUser
+样例：https://[host]:[port]/user/updateUser
 
 传入：
 
 | 字段名         | 描述                     | 类型   | 说明 |
 | -------------- | ------------------------ | ------ | ---- |
+| id             | id                       | String |      |
 | nickHame       | 姓名                     | String |      |
 | gender         | 性别                     | String |      |
 | grade          | 年龄                     | String |      |
 | phone          | 电话                     | String |      |
-| createTime     | 创建时间                 | String |      |
-| status         | 用户状态(0-否,1-是)      | String |      |
 
 成功返回结果：
 
 ```
 {
-    "status": "0",
-    "body": {
-        "nickHame": "lmx",
-        "gender": "1",
-        "grade": "15",
-        "phone": "15101053946",
-        "createTime": "2018-07-30 23:23:23",
-        "status": "1"
-    },
-    "msg": "添加成功"
+  "status": "0",
+  "body": {
+    "id": "4",
+    "nickHame": "limingxin",
+    "gender": "2",
+    "grade": "三年级",
+    "phone": "110",
+    "createTime": "null",
+    "status": "null"
+  },
+  "msg": "修改成功"
 }
 ```
 
@@ -39,9 +39,8 @@
 | msg            |                          | String |                       |
 | code           |                          | Integer| 0请求成功；非0失败；具体见msgDesc |
 | body           |                          | Object |      |
+| id             | id                       | String |      |
 | nickHame       | 姓名                     | String |      |
 | gender         | 性别                     | String |      |
 | grade          | 年龄                     | String |      |
 | phone          | 电话                     | String |      |
-| createTime     | 创建时间                 | String |      |
-| status         | 用户状态(0-否,1-是)      | String |      |

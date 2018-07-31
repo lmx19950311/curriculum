@@ -21,4 +21,6 @@ public class Constant {
     public final static String ADD_USER_ORDER = "/userOrder/addUserOrder";
 
     public final static String UPDATE_COURSE = "/course/updateCourse";
+
+    public final static String UPDATE_USER = "/user/updateUser";
 }

@@ -29,12 +29,25 @@ public class UserController {
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String addCourse(
+    public String addUser(
             @BeanParam UserBean userBean) {
         ResultStruct result = new ResultStruct();
         try {
             Map<String, Object> param = TransferUtils.transBeanToMap(userBean);
             return HttpRequest.sendPost(Constant.ADD_USER, param);
+        } catch (Exception ex) {
+            return SystemException.setResult(result, ex, logger);
+        }
+    }
+
+    @RequestMapping(value = "/updateUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public String updateUser(
+            @BeanParam UserBean userBean) {
+        ResultStruct result = new ResultStruct();
+        try {
+            Map<String, Object> param = TransferUtils.transBeanToMap(userBean);
+            return HttpRequest.sendPost(Constant.UPDATE_USER, param);
         } catch (Exception ex) {
             return SystemException.setResult(result, ex, logger);
         }
