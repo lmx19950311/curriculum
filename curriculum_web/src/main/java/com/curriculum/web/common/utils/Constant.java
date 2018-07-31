@@ -23,4 +23,6 @@ public class Constant {
     public final static String UPDATE_COURSE = "/course/updateCourse";
 
     public final static String UPDATE_USER = "/user/updateUser";
+
+    public final static String DELETE_COURSE = "/course/deleteCourse";
 }

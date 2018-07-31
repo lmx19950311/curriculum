@@ -74,4 +74,17 @@ public class CourseService {
         }
         return returnValue;
     }
+
+    public ReturnValue deleteCourse(String isDelete, String id) {
+        ReturnValue returnValue = new ReturnValue();
+        try {
+            courseMapper.deleteCourse(isDelete, id);
+            returnValue.setFlag(ReturnValue.FLAG_SUCCESS);
+            returnValue.setMeg(me.getValue(ResultMsgConstant.deleteSuccess));
+            returnValue.setObject("{\"isDelete\" : \"" + isDelete + "\"}");
+        } catch (Exception ex) {
+            return SystemException.setResult(returnValue, ex, logger);
+        }
+        return returnValue;
+    }
 }

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.BeanParam;
+import javax.ws.rs.FormParam;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -57,6 +59,21 @@ public class CourseController {
         try {
             Map<String, Object> param = TransferUtils.transBeanToMap(courseBean);
             String content = HttpRequest.sendPost(Constant.UPDATE_COURSE, param);
+            return content;
+        } catch (Exception ex) {
+            return SystemException.setResult(result, ex, logger);
+        }
+    }
+
+    @RequestMapping(value = "/deleteCourse", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public String deleteCourse(String isDelete, String id) {
+        ResultStruct result = new ResultStruct();
+        try {
+            Map<String, Object> param = new HashMap<String, Object>();
+            param.put("isDelete", isDelete);
+            param.put("id", id);
+            String content = HttpRequest.sendPost(Constant.DELETE_COURSE, param);
             return content;
         } catch (Exception ex) {
             return SystemException.setResult(result, ex, logger);

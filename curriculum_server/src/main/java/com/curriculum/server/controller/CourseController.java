@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.ws.rs.BeanParam;
+import javax.ws.rs.FormParam;
 
 /**
  * User module interface
@@ -62,6 +63,20 @@ public class CourseController {
         ResultStruct result = new ResultStruct();
         try {
             ReturnValue returnValue = courseService.updateCourse(courseBean);
+            result = ResultStruct.setResultStructInfo(returnValue, result);
+            return result;
+        } catch (Exception ex) {
+            SystemException.setResult(result, ex, logger);
+            return result;
+        }
+    }
+
+    @RequestMapping(value = "/deleteCourse", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public  ResultStruct deleteCourse(String isDelete, String id) {
+        ResultStruct result = new ResultStruct();
+        try {
+            ReturnValue returnValue = courseService.deleteCourse(isDelete, id);
             result = ResultStruct.setResultStructInfo(returnValue, result);
             return result;
         } catch (Exception ex) {

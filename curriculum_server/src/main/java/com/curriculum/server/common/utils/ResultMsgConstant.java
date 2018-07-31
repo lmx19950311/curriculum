@@ -43,4 +43,6 @@ public class ResultMsgConstant {
     public final static String addSuccess = "addSuccess";
     // update success
     public final static String modifySuccess = "modifySuccess";
+    // delete success
+    public final static String deleteSuccess = "deleteSuccess";
 }
