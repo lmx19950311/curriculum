@@ -45,4 +45,7 @@ public class ResultMsgConstant {
     public final static String modifySuccess = "modifySuccess";
     // delete success
     public final static String deleteSuccess = "deleteSuccess";
+    // find success
+    public final static String querySuccess = "querySuccess";
+
 }

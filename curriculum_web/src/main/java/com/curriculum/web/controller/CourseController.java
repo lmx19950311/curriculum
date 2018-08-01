@@ -79,4 +79,18 @@ public class CourseController {
             return SystemException.setResult(result, ex, logger);
         }
     }
+
+    @RequestMapping(value = "/findCourse", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public String findCourse(String id) {
+        ResultStruct result = new ResultStruct();
+        try {
+            Map<String, Object> param = new HashMap<String, Object>();
+            param.put("id", id);
+            String content = HttpRequest.sendPost(Constant.FIND_COURSE, param);
+            return content;
+        } catch (Exception ex) {
+            return SystemException.setResult(result, ex, logger);
+        }
+    }
 }

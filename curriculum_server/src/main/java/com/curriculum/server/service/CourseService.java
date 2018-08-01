@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * course Service
  * @author liumengwei
@@ -82,6 +84,19 @@ public class CourseService {
             returnValue.setFlag(ReturnValue.FLAG_SUCCESS);
             returnValue.setMeg(me.getValue(ResultMsgConstant.deleteSuccess));
             returnValue.setObject("{\"isDelete\" : \"" + isDelete + "\"}");
+        } catch (Exception ex) {
+            return SystemException.setResult(returnValue, ex, logger);
+        }
+        return returnValue;
+    }
+
+    public ReturnValue findCourse() {
+        ReturnValue returnValue = new ReturnValue();
+        try {
+            List<Course> e = courseMapper.findCourse();
+            returnValue.setFlag(ReturnValue.FLAG_SUCCESS);
+            returnValue.setMeg(me.getValue(ResultMsgConstant.querySuccess));
+            returnValue.setObject(e);
         } catch (Exception ex) {
             return SystemException.setResult(returnValue, ex, logger);
         }

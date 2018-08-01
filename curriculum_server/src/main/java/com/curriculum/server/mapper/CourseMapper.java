@@ -1,10 +1,9 @@
 package com.curriculum.server.mapper;
 
 import com.curriculum.server.daoBean.Course;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 /**
  * course
@@ -33,4 +32,10 @@ public interface CourseMapper {
 
     @Update("update course set is_delete = #{is_delete} where id = #{id}")
     void deleteCourse(@Param("is_delete") String is_delete, @Param("id") String id);
+
+    @Select("select id as 'id', FROM_UNIXTIME(course_begin_time,'%Y-%m-%d %H:%i:%s') as 'course_begin_time'," +
+            " FROM_UNIXTIME(course_end_time,'%Y-%m-%d %H:%i:%s') as 'course_end_time', " +
+            "course_money as 'course_money', FROM_UNIXTIME(create_time,'%Y-%m-%d %H:%i:%s') as 'create_time'," +
+            " num as 'num', is_delete as 'is_delete' from course order by create_time")
+    List<Course> findCourse();
 }
