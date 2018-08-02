@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.BeanParam;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -48,6 +49,21 @@ public class UserController {
         try {
             Map<String, Object> param = TransferUtils.transBeanToMap(userBean);
             return HttpRequest.sendPost(Constant.UPDATE_USER, param);
+        } catch (Exception ex) {
+            return SystemException.setResult(result, ex, logger);
+        }
+    }
+
+    @RequestMapping(value = "/findUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public String findUser(String orderNo, String nickHame, String phone) {
+        ResultStruct result = new ResultStruct();
+        try {
+            Map<String, Object> param = new HashMap<String, Object>();
+            param.put("orderNo", orderNo);
+            param.put("nickHame", nickHame);
+            param.put("phone", phone);
+            return HttpRequest.sendPost(Constant.FIND_USER, param);
         } catch (Exception ex) {
             return SystemException.setResult(result, ex, logger);
         }

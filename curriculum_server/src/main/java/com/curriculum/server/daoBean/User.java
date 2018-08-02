@@ -1,5 +1,7 @@
 package com.curriculum.server.daoBean;
 
+import java.util.List;
+
 public class User {
     private Long id;
     private String nick_hame;

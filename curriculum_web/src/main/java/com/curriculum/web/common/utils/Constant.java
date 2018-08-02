@@ -29,4 +29,6 @@ public class Constant {
     public final static String DELETE_USER_ORDER = "/userOrder/deleteUserOrder";
 
     public final static String FIND_COURSE = "/course/findCourse";
+
+    public final static String FIND_USER = "/user/findUser";
 }

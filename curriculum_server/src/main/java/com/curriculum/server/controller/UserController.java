@@ -59,4 +59,18 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/findUser", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public ResultStruct findUser(String orderNo, String nickHame, String phone) {
+        ResultStruct result = new ResultStruct();
+        try {
+            ReturnValue returnValue = userService.findUser(orderNo, nickHame, phone);
+            result = ResultStruct.setResultStructInfo(returnValue, result);
+            return result;
+        } catch (Exception ex) {
+            SystemException.setResult(result, ex, logger);
+            return result;
+        }
+    }
+
 }

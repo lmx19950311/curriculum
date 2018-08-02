@@ -1,9 +1,11 @@
 package com.curriculum.server.mapper;
 
 import com.curriculum.server.daoBean.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Update;
+import com.curriculum.server.fBean.PayUserCorseBean;
+import com.curriculum.server.provider.UserMapperProvider;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 /**
  * 用户
@@ -19,5 +21,10 @@ public interface UserMapper {
 
     @Update("update user set nick_hame = #{nick_hame}, gender = #{gender},  grade = #{grade}, phone = #{phone} where id = #{id}")
     void updateUser(User user);
+
+    @SelectProvider(type = UserMapperProvider.class, method = "findSql")
+    List<PayUserCorseBean> findUser(String orderNo, String nickHame, String phone);
+
+
 }
 

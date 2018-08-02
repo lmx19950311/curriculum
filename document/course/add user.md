@@ -6,17 +6,14 @@
 
 传入：
 
-| 字段名         | 描述                       | 类型   | 说明   |
-| -------------- | -------------------------- | ------ | ----   |
-| nickHame            | 用户id                     | String |      |
-| gender            | 课程id                     | String |      |
-| grade     | 创建时间                   | String |      |
-| phone        | 支付类型(1-支付宝,2-微信)  | String |      |
-| createTime        | 支付时间                   | String |      |
-| payAccount     | 支付账号                   | String |      |
-| payResult      | 支付结果                   | String |      |
-| payMony        | 支付金额                   | String |      |
-| orderNo        | 订单号                     | String |      |
+| 字段名         | 描述                     | 类型   | 说明 |
+| -------------- | ------------------------ | ------ | ---- |
+| nickHame       | 姓名                     | String |      |
+| gender         | 性别                     | String |      |
+| grade          | 年龄                     | String |      |
+| phone          | 电话                     | String |      |
+| createTime     | 创建时间                 | String |      |
+| status         | 用户状态(0-否,1-是)      | String |      |
 
 成功返回结果：
 
@@ -40,17 +37,14 @@
 
 结果说明：
 
-| 字段名         | 描述                       | 类型   | 说明   |
-| -----------    | -------------------------- | -------| ------------------------ |
-| msg            |                            | String |                       |
-| code           |                            | Integer| 0请求成功；非0失败；具体见msgDesc |
-| body           |                            | Object |      |
-| uid            | 用户id                     | String |      |
-| cid            | 课程id                     | String |      |
-| createTime     | 创建时间                   | String |      |
-| payType        | 支付类型(1-支付宝,2-微信)  | String |      |
-| payTime        | 支付时间                   | String |      |
-| payAccount     | 支付账号                   | String |      |
-| payResult      | 支付结果                   | String |      |
-| payMony        | 支付金额                   | String |      |
-| orderNo        | 订单号                     | String |      |
+| 字段名         | 描述                     | 类型   | 说明   |
+| -----------    | ------------------------ | -------| ------------------------ |
+| msg            |                          | String |                       |
+| code           |                          | Integer| 0请求成功；非0失败；具体见msgDesc |
+| body           |                          | Object |      |
+| nickHame       | 姓名                     | String |      |
+| gender         | 性别                     | String |      |
+| grade          | 年龄                     | String |      |
+| phone          | 电话                     | String |      |
+| createTime     | 创建时间                 | String |      |
+| status         | 用户状态(0-否,1-是)      | String |      |
